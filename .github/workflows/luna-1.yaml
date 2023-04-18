@@ -1,0 +1,10 @@
+name: luna-1-production
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    if: github.ref_name == 'production'
+    runs-on: [ self-hosted, "luna-1" ]
+    steps:
+      - uses: actions/checkout@v2
+      - run: source /home/ubuntu/ai/strapi.sh; ./deploy.sh

@@ -1,0 +1,86 @@
+
+image:
+  repository: "set using cli"
+  pullPolicy: IfNotPresent
+  tag: "set using cli"
+
+imagePullSecrets: []
+nameOverride: "atmagic-strapi"
+fullnameOverride: "atmagic-strapi"
+
+serviceAccount:
+  create: true
+  annotations:
+    "eks.amazonaws.com/role-arn": "arn:aws:iam::560384251929:role/atmagic-strapi-role"
+  name: "atmagic-strapi"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/group.name: "main"
+    alb.ingress.kubernetes.io/group.order: "61"
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/target-type: "ip"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    kubernetes.io/ingress.class: "alb"
+  hosts:
+    - host: strapi.cohesive.so
+      paths:
+        - path: /api/*
+          pathType: ImplementationSpecific
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+   limits:
+     cpu: 500m
+     memory: 1Gi
+   requests:
+     cpu: 500m
+     memory: 1Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+
+#env
+ENV:
+  HOST: 0.0.0.0
+  PORT: 3000
+  APP_KEYS: /wuTwakjidsdsVMbOufr8g==,OedQefdS4AdPBQ7Gb3F7gw==,HnIm9xRQqRfLgV5t0WdYxg==,1BzojoIqjrKHZwTVHs5TPQ==
+  API_TOKEN_SALT: xEEMQF4XUbqcaqs8/bukrQ==
+  ADMIN_JWT_SECRET: Z328337ZHa2KC3gpof5x6g==
+  TRANSFER_TOKEN_SALT: yqJLNg5gXcVxlwShSdej1g==
+  DATABASE_CLIENT: mysql
+  DATABASE_HOST: services2.live.cohesive.so
+  DATABASE_PORT: 9030
+  DATABASE_NAME: db
+  DATABASE_USERNAME: strapi
+  DATABASE_PASSWORD: iAbzggPDYbS$
+  DATABASE_SSL: false
+  JWT_SECRET: nNUhxGrRsZvOG38VPZiIhA==
+  NODE_ENV: production
