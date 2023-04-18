@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "features",
+  "info": {
+    "singularName": "feature",
+    "pluralName": "features",
+    "displayName": "Feature",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "feature_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fcard.fcard"
+    },
+    "CTA": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

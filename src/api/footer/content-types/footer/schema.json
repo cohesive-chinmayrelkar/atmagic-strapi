@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "about": {
+      "type": "text"
+    },
+    "sections": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fcards",
+  "info": {
+    "singularName": "fcard",
+    "pluralName": "fcards",
+    "displayName": "fcard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

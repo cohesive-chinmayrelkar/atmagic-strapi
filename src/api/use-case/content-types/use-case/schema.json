@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "use_cases",
+  "info": {
+    "singularName": "use-case",
+    "pluralName": "use-cases",
+    "displayName": "UseCase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "card_title": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card"
+    },
+    "feature_title": {
+      "type": "text"
+    },
+    "feature_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feature-card.feature-card"
+    },
+    "review_title": {
+      "type": "text"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review"
+    },
+    "CTA": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "text"
+    },
+    "bullet_points": {
+      "type": "json"
+    }
+  }
+}

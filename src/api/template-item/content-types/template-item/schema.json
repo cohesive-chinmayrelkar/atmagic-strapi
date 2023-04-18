@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "template_items",
+  "info": {
+    "singularName": "template-item",
+    "pluralName": "template-items",
+    "displayName": "Template-item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "steps_title": {
+      "type": "text"
+    },
+    "steps": {
+      "type": "json"
+    },
+    "introduction": {
+      "type": "richtext",
+      "required": true
+    },
+    "slug": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "template": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::template.template",
+      "inversedBy": "template_items"
+    }
+  }
+}

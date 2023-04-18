@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feature_cards",
+  "info": {
+    "singularName": "feature-card",
+    "pluralName": "feature-cards",
+    "displayName": "Ufeature-card",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "CTA": {
+      "type": "text"
+    }
+  }
+}
